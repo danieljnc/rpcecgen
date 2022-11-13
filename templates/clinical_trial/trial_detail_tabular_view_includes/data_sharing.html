@@ -1,0 +1,34 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Data sharing plan</th>
+    <td class="ct-body3 tr-rowBody">
+        {% if trial.field_data_plan_value %}
+            {{ trial.field_data_plan_value }}
+        {% else %}
+            No
+        {% endif %}
+    </td>
+</tr>
+
+{% if trial.field_des_plan_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Description of Data Sharing Plan</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_des_plan_value }}
+    </td>
+</tr>
+{% endif %}
+
+{% if trial.field_aditional_documents_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Additional information to share</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_aditional_documents_value }}
+    </td>
+</tr>
+{% endif %}
+
+{% if trial.field_url_documents_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">URL for additional information</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_url_documents_value }}
+    </td>
+</tr>
+{% endif %}

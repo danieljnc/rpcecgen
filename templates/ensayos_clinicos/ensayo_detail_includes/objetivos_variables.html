@@ -1,0 +1,37 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Objetivos del ensayo</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_obj_ensayo_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Tipo de objetivo a evaluar</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_tipo_obj_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_otro_tipo_obj_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Otro tipo de objetivo</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_otro_tipo_obj_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Hipótesis del EC</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_hipotesis_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Variable(s) primaria(s)</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_variable_prim_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Variables secundarias</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_variable_secund_value }}
+    </td>
+</tr>

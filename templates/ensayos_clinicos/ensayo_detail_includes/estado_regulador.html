@@ -1,0 +1,42 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Estado del producto</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_estadop_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Instancia que registró el producto</th>
+    {% assign_class ensayo.field_inst_producto_value as inst_producto_class %}
+    <td class="ct-body3 tr-rowBody {{ inst_producto_class }}">
+        {% if inst_producto_class == 'tr-missing_color' %}
+            No aplicable
+        {% else %}
+            {{ ensayo.field_inst_producto_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Número de registro sanitario</th>
+    {% assign_class ensayo.field_numero_reg_value as numero_reg_class %}
+    <td class="ct-body3 tr-rowBody {{ numero_reg_class }}">
+        {% if numero_reg_class == 'tr-missing_color' %}
+            No aplicable
+        {% else %}
+            {{ ensayo.field_numero_reg_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha de registro sanitario</th>
+    {% assign_class ensayo.field_fecha_registro_value as fecha_registro_class %}
+    <td class="ct-body3 tr-rowBody {{ fecha_registro_class }}">
+        {% if fecha_registro_class == 'tr-missing_color' %}
+            No aplicable
+        {% else %}
+            {{ ensayo.field_fecha_registro_value|date:"d/m/Y" }}
+        {% endif %}
+    </td>
+</tr>

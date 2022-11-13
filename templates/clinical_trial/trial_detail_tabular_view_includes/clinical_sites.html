@@ -1,0 +1,44 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Countries of recruitment</th>
+    <td class="ct-body3 tr-rowBody">
+        {% for country in  trial.countries %}
+            {{ country.field_countries_value }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Clinical sites</th>
+    {% assign_class trial.clinical_sites.0.field_participating_sc_value as clinical_site_class %}
+    <td class="{{ clinical_site_class }}">
+
+        {% if clinical_site_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <ul>
+                {% for clinical_site in  trial.clinical_sites %}
+                    <li>{{ clinical_site.field_participating_sc_value }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>
+
+{% if trial.ethics_committes.0 %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Ethics committees</th>
+        {% assign_class trial.ethics_committes.0.field_ethics_committes_value as ethic_committe_class %}
+        <td class="{{ ethic_committe_class }}">
+            {% if ethic_committe_class == 'tr-missing_color' %}
+                Not applicable
+            {% else %}
+                <ul>
+                    {% for ethic_committe in  trial.ethics_committes %}
+                        <li>{{ ethic_committe.field_ethics_committes_value }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </td>
+    </tr>
+{% endif %}

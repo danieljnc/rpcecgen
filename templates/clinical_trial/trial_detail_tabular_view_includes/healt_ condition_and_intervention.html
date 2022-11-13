@@ -1,0 +1,72 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Health condition(s) or Problem(s) studied</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_health_condition_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Health condition(s) code</th>
+    {% assign_class trial.hc_codes.0.field_hc_code_value as hc_codes_class %}
+    <td class="{{ hc_codes_class }}">
+        {% if hc_codes_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <ul>
+                {% for hc_code in trial.hc_codes %}
+                    <li>{{ hc_code.field_hc_code_value }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Health condition keyword</th>
+    {% assign_class trial.hc_keywords.0.field_hc_keyword_value as hc_keywords_class %}
+    <td class="{{ hc_keywords_class }}">
+        {% if hc_keywords_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <ul>
+                {% for hc_keyword in trial.hc_keywords %}
+                    <li>{{ hc_keyword.field_hc_keyword_value }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Intervention(s)</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_intervention_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Intervention code</th>
+    {% assign_class trial.i_codes.0.field_inter_code_value as i_codes_class %}
+    <td class="{{ i_codes_class }}">
+        {% if i_codes_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <ul>
+                {% for i_code in trial.i_codes %}
+                    <li>{{ i_code.field_inter_code_value }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Intervention keyword</th>
+    {% assign_class trial.field_i_keyword_value as i_keyword_class %}
+    <td class="{{ i_keyword_class }}">
+        {% if i_keyword_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            {{ trial.field_i_keyword_value }}
+        {% endif %}
+    </td>
+</tr>

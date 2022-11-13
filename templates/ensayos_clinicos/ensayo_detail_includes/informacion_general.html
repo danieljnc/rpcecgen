@@ -1,0 +1,54 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Siglas para el título abreviado</th>
+    {% assign_class ensayo.field_sigla_abreviado_value as sigla_abreviado_class %}
+    <td class="ct-body3 tr-rowBody {{ sigla_abreviado_class }}">
+        {% if sigla_abreviado_class == 'tr-missing_color' %}
+            No aplicable
+        {% else %}
+            {{ ensayo.field_sigla_abreviado_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Título completo del estudio</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_titulo_completo_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Siglas para el título completo</th>
+    {% assign_class ensayo.field_siglas_value as siglas_class %}
+    <td class="ct-body3 tr-rowBody {{ siglas_class }}">
+        {% if siglas_class == 'tr-missing_color' %}
+            No aplicable
+        {% else %}
+            {{ ensayo.field_siglas_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Palabras claves</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_palabras_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Promotor principal</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_promotor_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Participación del CENCEC en el ensayo</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_part_cencec_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fuentes de financiamiento del estudio</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_fuente_fin_value }}
+    </td>
+</tr>

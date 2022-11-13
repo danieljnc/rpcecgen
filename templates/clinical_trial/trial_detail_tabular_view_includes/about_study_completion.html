@@ -1,0 +1,48 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Final enrolment number</th>
+    {% assign_class trial.field_actual_enroment_value as actual_enroment_class %}
+    <td class="{{ actual_enroment_class }}">
+        {% if actual_enroment_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            {{ trial.field_actual_enroment_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Study completion date</th>
+    {% assign_class trial.field_study_date_value as study_date_class %}
+    <td class="{{ study_date_class }}">
+        {% if study_date_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            {{ trial.field_study_date_value }} 
+        {% endif %}                
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Date of available results</th>
+    {% assign_class trial.field_results_date_value as results_date_class %}
+    <td class="{{ results_date_class }}">
+        {% if results_date_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            {{ trial.field_results_date_value }} 
+        {% endif %}                
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Date of first publication</th>
+    {% assign_class trial.field_first_publication_value as first_publication_class %}
+    <td class="{{ first_publication_class }}">
+        {% if first_publication_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            {{ trial.field_first_publication_value }} 
+        {% endif %}                
+    </td>
+</tr>

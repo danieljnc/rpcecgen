@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}Detalle de Ensayo clínico en Español{% endblock %}
+
+{% block poststyles %}
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{% static 'build/clinical-trial.css' %}">
+{% endblock %}
+
+{% block page_title %}Detalle de Ensayo clínico {{ ensayo.field_cod_reg_pub_value }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ct-indent1">
+
+                    <table class="ct-data_table tr-data_table tr-tableStyle">
+                        <tbody>
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Información general
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/informacion_general.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Autorización del inicio
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/autorizacion_inicio.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Estado regulador
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/estado_regulador.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Investigador principal
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/investigador_principal.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Sitios clínicos participantes
+                            </th>
+                        </tr>
+                        {#{% include 'clinical_trial/trial_detail_tabular_view_includes/recruitment_status.html' %}#}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>                        
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Etapa general y Estado de reclutamiento
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/estado_reclutamiento.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Intervención y condición médica
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/condicion_medica.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Objetivos y Variables
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/objetivos_variables.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Criterios de selección
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/criterios_seleccion.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>                       
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Diseño del estudio
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/diseno_estudio.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>                       
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Contacto para inquietudes generales
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/contacto_generales.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Contacto para inquietudes científicas
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/contacto_cientificas.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Referencias a publicaciones
+                            </th>
+                        </tr>
+                        {#{% include 'clinical_trial/trial_detail_tabular_view_includes/general_information.html' %}#}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Modificaciones al protocolo
+                            </th>
+                        </tr>
+                        {#{% include 'clinical_trial/trial_detail_tabular_view_includes/general_information.html' %}#}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Intercambio de datos
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/intercambio_datos.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Comité De Ética De La Investigación
+                            </th>
+                        </tr>
+                        {#{% include 'clinical_trial/trial_detail_tabular_view_includes/general_information.html' %}#}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Sobre la terminacion del estudio
+                            </th>
+                        </tr>
+                        {% include 'ensayos_clinicos/ensayo_detail_includes/terminacion_estudio.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Inscripción y actualización
+                            </th>
+                        </tr>
+                        {#{% include 'clinical_trial/trial_detail_tabular_view_includes/general_information.html' %}#}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

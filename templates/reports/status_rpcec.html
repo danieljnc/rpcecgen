@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <style>      
+        .box{
+            border: 1px solid #000000;
+        }
+        .box h1 {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .subtitle {
+            padding-top: 50px;
+        }
+
+        .subtitle h2{
+            font-size: 16px;
+        }
+
+        .content p{
+            font-size: 14px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .content h2{
+            color: red;
+            font-size: 14px;
+        }
+
+        .content ul{
+            padding-left: 30px;
+        }
+
+        .content ul li{
+            font-size: 14px;
+        }
+
+        .img-subtitle{
+            text-align: center;
+            font-size: 13px;
+            font-style: italic;  
+        }
+    </style>
+</head>
+<body>
+    <div  id="header_content" class="box">
+        <h1>Registro Público Cubano de Ensayos Clínicos (RPCEC)</h1>
+    </div>
+
+    <div class="subtitle">
+        <h2>Antecedentes</h2>
+    </div>
+
+    <div class="content">
+        <p>
+            Los registros de ensayos clínicos surgen como respuesta de la comunidad científica ante problemas de manipulación de información y escándalos relacionados con las investigaciones clínicas, así como la tendencia de algunos editores de revistas médicas de reportar selectivamente los resultados de los ensayos clínicos. Por ello se plantea como una herramienta para contribuir con la transparencia de la investigación.
+        </p>
+        <p>
+            Aparecen como precondición para aspirar a la publicación de los resultados de ensayos clínicos y luego se convierten en un principio ético. En 2005 el Comité Internacional de Editores de Revistas Médicas (ICMJE por sus siglas en inglés) empieza a exigir como condición para considerar una publicación de ensayos clínicos, el registro del ensayo en una base de datos pública. Estas consideraciones se publican en las editoriales de septiembre de 2004 y mayo de 2005. En 2008, se modifica la Declaración de Helsinki (DoH) durante la 59 asamblea general de la Asociación Médica Mundial (AMM) celebrada en Seúl, Corea. En esta modificación, en su párrafo 19 se estableció que “Todo ensayo clínico debe ser inscrito en una base de datos disponible al público antes de aceptar a la primera persona”. La DoH se modifica nuevamente en 2013 y ese párrafo se modifica como “Todo estudio de investigación con seres humanos debe ser inscrito en una base de datos disponible al público antes de aceptar a la primera persona” ahora como párrafo 35.
+        </p>
+        <p>
+            Por otra parte, en 2005 comienza a gestarse la Plataforma Internacional de Registros de la OMS (ICTRP por sus siglas en inglés), organización que establece un conjunto de requisitos para declarar los registros como “registros primarios” entre el que se destaca un conjunto mínimo de 20 elementos de datos que permite que todos los ensayos registrados en los diferentes registros primarios, sean visibles a través del Portal de búsqueda de la plataforma, http://apps.who.int/trialsearch/. En mayo de 2007 se lanza la ICTRP inicialmente con tres registros (clinicaltrials.gov, ISRCTN.org y Australian New Zealand Clinical Trials Registry)
+        </p>
+        <p>
+            En Cuba, a finales de 2006 el desarrollo de un registro primario propio resultaba posible y necesario. Se necesitaba disponer de un registro nacional pues los registros existentes no eran útiles para la población cubana ya que no existía ningún registro en español. Por otra parte, aunque el acceso a los ensayos registrados es público y gratuito, algunos registros requerían de un pago previo para la inscripción de los ensayos y existía, y aún existe, un gran volumen de investigaciones clínicas de la industria farmacéutica y biotecnológica cubana dado el número de productos desarrollados desde la década de los 80. Por último, era posible contar con un registro propio al existir dos instituciones de salud con experiencia en las actividades de ensayos clínicos y redes telemáticas: el Centro Nacional Coordinador de Ensayos Clínicos (CENCEC) con una experiencia en el desarrollo de los ensayos clínicos de 20 años e Infomed, la red telemática de salud con un alcance nacional e internacional. 
+        </p>
+        <p>
+            Por esas razones se propuso crear un registro nacional con la visión de incorporarlo como registro primario a la plataforma internacional de registros de la OMS.
+        </p>
+
+        <h2>El registro cubano</h2>
+
+        <p>
+            El Registro Público Cubano de Ensayos Clínicos (RPCEC), es un sitio web con una base de datos de ensayos clínicos, de cobertura nacional establecida en 2007, bajo la dirección del Centro Nacional Coordinador de Ensayos Clínicos (CENCEC), y con la colaboración de INFOMED. El sitio, disponible en <a href="https://rpcec.sld.cu">https://rpcec.sld.cu</a>, permite a los promotores de los ensayos clínicos registrar sus ensayos y obtener un código RPCEC para lo cual necesitan:
+        </p>
+
+        <ul>
+            <li>Inscribirse como promotor (solo la primera vez)</li>
+            <li>Completar y enviar los formularios de aplicación en español e inglés</li>
+            <li>Obtener el código RPCEC</li>
+        </ul>
+
+        <p>
+            El código RPCEC se obtiene una vez que el ensayo se considera listo para su registro y publicación. Este código debe adquirirse antes de incluir el primer paciente/sujeto y es lo que se denomina REGISTRO PROSPECTIVO. Cualquier persona interesada puede consultar los ensayos registrados y otros recursos de información. Solo un usuario que desea registrar un ensayo (promotor de ensayo clínico) requiere de un nombre de usuario y una contraseña.
+        </p>
+
+        <p>
+            La figura 1 muestra la página principal del sitio.
+        </p>
+
+        <img src="{{ link_callback }}img/homepage.png" alt="">
+        <div class="img-subtitle">
+            Figura 1. Página de inicio del sitio web del Registro Público Cubano de Ensayos Clínicos
+        </div>
+        <br><br>
+        <p>
+            El RPCEC es un registro bilingüe, en español e inglés, por lo cual para registrar un ensayo en su base de datos se requiere completar los formularios de datos en ambos idiomas. Una vez que se completan los dos formularios y que el equipo revisor del registro comprueba que no existen datos inconsistentes, el ensayo recibe un número de registro, denominado código RPCEC, y una fecha de registro que se corresponde con la fecha en que se hace público a todos. La responsabilidad de la calidad y veracidad de los datos del estudio es de su promotor. Una vez que el ensayo se registra, no se eliminará de la vista pública. 
+        </p>
+
+        <p>
+            El registro desarrolló una estrategia de trabajo que le permitió obtener la condición de “registro primario” de la Plataforma de Registros Internacionales de la Organización Mundial de la Salud (OMS), en 2011. A partir de ese momento y cada cuatro semanas, envía sus datos en inglés al portal de la plataforma lo que favorece la visibilidad de los estudios registrados en él. Al recibir esta designación, se asegura que los datos registrados en él cumplen ciertos criterios (estándares de la plataforma). Estos criterios se pueden clasificar en 6 áreas principales: Contenido, Calidad y Validez, Accesibilidad, Identificación inequívoca, Capacidad técnica, Administración y Gobernanza.
+        </p>
+
+        <p>
+            De 2017 a 2019, como parte de un proyecto de innovación tecnológica, amplió su conjunto de datos para incluir el reporte de los resultados resumidos de los estudios registrados. Dicha ampliación está disponible en el sitio web desde julio de 2019. Además, una explicación con todos los elementos de datos se encuentra disponible en la página <a href=">https://rpcec.sld.cu/Formulario-de-ensayos-del-RPCEC ">https://rpcec.sld.cu/Formulario-de-ensayos-del-RPCEC</a> 
+        </p>
+
+        <p>
+            Desde su creación hasta la fecha se han registrado 389 estudios clínicos correspondientes a estudios realizados en Cuba y en otros países de la región de las Américas.  
+        </p>
+    </div>     
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- search form -->
+           
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MENÚ DE NAVEGACIÓN</li>
+                <li class="active">
+                    <a href="{% url 'homepage' %}">
+                        <i class="fa fa-dashboard"></i> <span>Inicio</span>
+                    </a>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>Reportes</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a target="_blank" href="{% url 'status_rpcec' %}"><i class="fa fa-circle-o"></i>Estado actual del RPCEC</a></li>                        
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-stethoscope"></i>
+                        <span>Ensayos clínicos</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{% url 'ensayo_clinico_list' %}"><i class="fa fa-circle-o"></i> Ensayos en español</a></li>
+                        <li><a href="{% url 'clinical_trial_list' %}"><i class="fa fa-circle-o"></i> Ensayos en inglés</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{% url 'generate_xml' %}">
+                        <i class="fa fa-file-code-o"></i>
+                        <span>Generar xml</span>
+                        
+                    </a>
+                    
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>

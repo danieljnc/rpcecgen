@@ -1,0 +1,135 @@
+{% load generator_extras %}
+<xml version="1.0" encoding="UTF-8">
+    <trials>
+        {% for trial in trial_list %}
+            <trial>
+                <main>
+                   <trial_id>{{ trial.field_id_number_value}}</trial_id>
+                    <utrn></utrn>
+                    <reg_name>RPCEC</reg_name>
+                    <date_registration> {{ trial.field_date_register_value }}</date_registration>
+                    <primary_sponsor>{{ trial.field_sponsor_value }}</primary_sponsor>
+                    <public_title>{{ trial.public_title }}</public_title>
+                    <acronym>{% if trial.field_public_acronym_value %} {{ trial.field_public_acronym_value }} {% endif %}</acronym>
+                    <scientific_title>{{ trial.field_scientific_title_value }}</scientific_title>
+                    <scientific_acronym>{% if trial.field_scientific_acronym_value %} {{ trial.field_scientific_acronym_value }} {% endif %}</scientific_acronym>
+                    <date_enrolment>{{ trial.field_date_first_enrollment_value }}</date_enrolment>
+                    <type_enrolment>{{ trial.type_of_enrolment }}</type_enrolment>
+                    <target_size>{{ trial.field_target_sample_size_value }}</target_size>
+                    <recruitment_status>{{ trial.field_recruitment_status_value }}</recruitment_status>
+                    <url>https://rpcec.sld.cu/en/trials/{{ trial.field_id_number_value }}-En</url>
+                    <study_type>{{ trial.field_type_study_value }}</study_type>
+                    <study_design>Allocation: {{ trial.field_allocation_value }}. Masking: {{ trial.field_masking_value }}. Control group: {{ trial.field_control_group_value }}. Assignment: {{ trial.field_study_design_value }}. Purpose: {{ trial.field_purpose_value }}</study_design>
+                    <phase>{{ trial.field_phase_value }}</phase>
+                    <hc_freetext>{{ trial.field_health_condition_value }}</hc_freetext>
+                    <i_freetext>{{ trial.field_intervention_value|paragraphbreaks }}</i_freetext>
+                    <results_actual_enrolment>{% if trial.field_actual_enroment_value %} {{ trial.field_actual_enroment_value }} {% endif %}</results_actual_enrolment>
+                    <results_date_completed>{% if trial.field_results_date_value %} {{ trial.field_results_date_value }} {% endif %}</results_date_completed>
+                    <results_url_link>{% if trial.field_results_url_link_value %} {{ trial.field_results_url_link_value }} {% endif %}</results_url_link>
+                    <results_summary>{% if trial.field_summary_value %} {{ trial.field_summary_value|paragraphbreaks }} {% endif %}</results_summary>
+                    <results_date_posted>{% if trial.field_results_date_value %} {{ trial.field_results_date_value }} {% endif %}</results_date_posted>
+                    <results_date_first_publication>{% if trial.field_first_publication_value %} {{ trial.field_first_publication_value }} {% endif %}</results_date_first_publication>
+                    <results_baseline_char>{% if trial.field_base_charat_value %} {{ trial.field_base_charat_value|paragraphbreaks }} {% endif %}</results_baseline_char>
+                    <results_participant_flow>{% if trial.field_par_flow_value %} {{ trial.field_par_flow_value|paragraphbreaks }} {% endif %}</results_participant_flow>
+                    <results_adverse_events>{% if trial.field_adv_events_value %} {{ trial.field_adv_events_value|paragraphbreaks }} {% endif %}</results_adverse_events>
+                    <results_outcome_measures>{% if trial.field_out_measures_value %} {{ trial.field_out_measures_value|paragraphbreaks }} {% endif %}</results_outcome_measures>
+                    <results_url_protocol>{% if trial.field_results2_url_link_value %} {{ trial.field_results2_url_link_value }} {% endif %}</results_url_protocol>
+                    <results_IPD_plan>{% if trial.field_data_plan_value %}{{ trial.field_data_plan_value }} {% endif %}</results_IPD_plan>
+                    <results_IPD_description>{% if trial.field_des_plan_value %} {{ trial.field_des_plan_value|paragraphbreaks }} {% endif %}</results_IPD_description>
+                </main>
+                <contacts>
+                    <contact>
+                        <type>public</type>
+                        <firstname>{{ trial.field_firstname_public_value }}</firstname>
+                        <middlename>{% if trial.field_midlename_public_value %}{{ trial.field_midlename_public_value }}{% endif %}</middlename>
+                        <lastname>{{ trial.field_lastname_public_value }}</lastname>
+                        <address>{{ trial.field_address_public_value }}</address>
+                        <city>{{ trial.field_city_public_value }}</city>
+                        <country1>{{ trial.field_country_public_value }}</country1>
+                        <zip>{{ trial.field_zipcode_public_value }}</zip>
+                        <telephone>{% if trial.field_phone_public_value %}{{ trial.field_phone_public_value }}{% endif %}</telephone>
+                        <email>{{ trial.field_email_public_value }}</email>
+                        <affiliation>{{ trial.field_affiliation_public_value }}</affiliation>
+                    </contact>
+                    <contact>
+                        <type>scientific</type>
+                        <firstname>{{ trial.field_firstname_scientific_value }}</firstname>
+                        <middlename>{% if trial.field_midlename_scientfic_value %}{{ trial.field_midlename_scientfic_value }}{% endif %}</middlename>
+                        <lastname>{{ trial.field_lastname_scientific_value }}</lastname>
+                        <address>{{ trial.field_address_scientific_value }}</address>
+                        <city>{{ trial.field_city_scientific_value }}</city>
+                        <country1>{{ trial.field_country_scientific_value }}</country1>
+                        <zip>{{ trial.field_zipcode_scientific_value }}</zip>
+                        <telephone>{% if trial.field_phone_scientific_value %}{{ trial.field_phone_scientific_value }}{% endif %}</telephone>
+                        <email>{{ trial.email_scientific }}</email>
+                        <affiliation>{{ trial.field_affiliation_scientific_value }}</affiliation>
+                    </contact>
+                </contacts>
+                <countries>
+                    {% for country in trial.countries %}
+                        <country2>{{ country.field_countries_value }}</country2>
+                    {% endfor %}
+                </countries>
+                <criteria>
+                    <inclusion_criteria>{{ trial.field_inclusion_criteria_value|paragraphbreaks }}</inclusion_criteria>
+                    <agemin>{{ trial.field_minimum_age_value }}</agemin>
+                    <agemax>{{ trial.field_maximum_age_value }}</agemax>
+                    <gender>{{ trial.field_gender_value }}</gender>
+                    <exclusion_criteria>{{ trial.field_exclusion_criteria_value|paragraphbreaks }}</exclusion_criteria>
+                </criteria>
+                <health_condition_code>
+                    {% for hc_code in trial.hc_codes %}
+                        <hc_code>{% if hc_code.field_hc_code_value %}{{ hc_code.field_hc_code_value }}{% endif %}</hc_code>
+                    {% endfor %}
+                </health_condition_code>
+                <health_condition_keyword>
+                    {% for hc_keyword in trial.hc_keywords %}
+                        <hc_keyword>{% if hc_keyword.field_hc_keyword_value %}{{ hc_keyword.field_hc_keyword_value }}{% endif %}</hc_keyword>
+                    {% endfor %}
+                </health_condition_keyword>
+                <intervention_code>
+                    {% for i_code in trial.i_codes %}
+                        <i_code>{% if i_code.field_inter_code_value %}{{ i_code.field_inter_code_value }}{% endif %}</i_code>
+                    {% endfor %}
+                </intervention_code>
+                <intervention_keyword>
+                    <i_keyword>{% if trial.field_i_keyword_value %}{{ trial.field_i_keyword_value }}{% endif %}</i_keyword>
+                </intervention_keyword>
+                <primary_outcome>
+                    <prim_outcome>{{ trial.field_primary_outcomes_value|paragraphbreaks }}</prim_outcome>
+                </primary_outcome>
+                <secondary_outcome>
+                    <sec_outcome>{{ trial.field_secondary_outcomes_value|paragraphbreaks }}</sec_outcome>
+                </secondary_outcome>
+                <secondary_sponsor>
+                    {% for secondary_sponsor in trial.secondary_sponsors %}
+                        <sponsor_name>{% if secondary_sponsor.field_sec_sponsor_value %}{{ secondary_sponsor.field_sec_sponsor_value }}{% endif %}</sponsor_name>
+                    {% endfor %}
+                </secondary_sponsor>
+                <secondary_ids>
+                    {% for secondary_id in trial.secondary_ids %}
+                        <secondary_id>
+                            <sec_id>{% if secondary_id.sec_id %}{{ secondary_id.sec_id }}{% endif %}</sec_id>
+                            <issuing_authority>{% if secondary_id.issuing_authorities %}{{ secondary_id.issuing_authorities }}{% endif %}</issuing_authority>
+                        </secondary_id>
+                    {% endfor %}
+                </secondary_ids>
+                <source_support>
+                    <source_name>{{ trial.field_source_monetary_value }}</source_name>
+                </source_support>
+                <ethics_reviews>
+                    {% for ethic_committee in trial.ethics_committee %}
+                        <ethics_review>
+                            <status>{% if ethic_committee.status %}{{ ethic_committee.status }}{% endif %}</status>
+                            <approval_date>{% if  ethic_committee.approval_date %}{{ ethic_committee.approval_date }}{% endif %}</approval_date>
+                            <contact_name>{% if ethic_committee.contact_name %}{{ ethic_committee.contact_name }}{% endif %}</contact_name>
+                            <contact_address>{% if ethic_committee.contact_address %}{{ ethic_committee.contact_address }}{% endif %}</contact_address>
+                            <contact_phone>{% if ethic_committee.contact_phone %}{{ ethic_committee.contact_phone }}{% endif %}</contact_phone>
+                            <contact_email>{% if ethic_committee.contact_email %}{{ ethic_committee.contact_email }}{% endif %}</contact_email>
+                        </ethics_review>
+                     {% endfor %}
+                </ethics_reviews>
+            </trial>
+        {% endfor %}
+    </trials>
+</xml>

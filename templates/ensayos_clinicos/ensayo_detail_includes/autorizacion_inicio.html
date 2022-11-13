@@ -1,0 +1,50 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Instancia reguladora que aprueba el inicio del ensayo</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_instancia_reg_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_otra_instancias_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Otras instancias reguladoras</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_otra_instancias_value }}
+    </td>
+</tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha de la autorización de inicio por Agencia reguladora</th>
+    {% assign_class ensayo.field_fecha_autoriz_value as fecha_autoriz_class %}
+    <td class="ct-body3 tr-rowBody {{ fecha_autoriz_class }}">
+        {% if fecha_autoriz_class == 'tr-missing_color' %}
+            No proveido
+        {% else %}
+            {{ ensayo.field_fecha_autoriz_value|date:"d/m/Y" }}
+        {% endif %}
+    </td>
+</tr>
+
+{% if ensayo.field_inst_reguladoras_value and ensayo.field_inst_reguladoras_value != 'No entrado' %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Instancia reguladora (notificación)</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_inst_reguladoras_value }}
+    </td>
+</tr>
+{% endif %}
+
+{% if ensayo.field_fecha_notific_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha de la notificación</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_fecha_notific_value }}
+    </td>
+</tr>
+{% endif %}
+
+{% if ensayo.field_numero_ref_value %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Número de referencia en la agencia reguladora</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_numero_ref_value }}
+    </td>
+</tr>
+{% endif %}

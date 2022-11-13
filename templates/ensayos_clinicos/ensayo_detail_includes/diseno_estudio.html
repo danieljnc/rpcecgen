@@ -1,0 +1,71 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Tipo de estudio</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_tipo_estudio_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Propósito primario de la intervención</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_prop_primario_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_otro_proposito_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Otro propósito primario del estudio</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_otro_proposito_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Aleatorización</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_aleatorizacion_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Enmascaramiento</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_enmascarameinto_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Grupo control</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_grupo_control_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Diseño</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_diseno_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_otro_diseno_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Otro diseño</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_otro_diseno_value }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if ensayo.field_otro_det_diseno_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Otros detalles del diseño</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_otro_det_diseno_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fase</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_fase_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Tamaño de muestra</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_tamano_muestra_value }}
+    </td>
+</tr>

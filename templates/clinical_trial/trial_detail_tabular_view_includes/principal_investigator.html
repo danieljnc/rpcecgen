@@ -1,0 +1,77 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">First name</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_first_investigator_value }}
+    </td>
+</tr>
+
+{% if trial.field_midle_investigator_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Middle name</th>
+        <td class="ct-body3 tr-rowBody">{{ trial.field_midle_investigator_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Last name</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_last_investigator_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Medical Specialty</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_spec_investigator_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Affiliation</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_affiliation_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Postal address</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_address_investigator_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">City</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_city_investigator_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Country</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_country_investigator_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Zip Code</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_code_investigator_value }}
+    </td>
+</tr>
+
+{% if trial.principal_investigator_phone.0 %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Telephone</th>
+    <td class="ct-body3 tr-rowBody">
+        {% for phone in  trial.principal_investigator_phone %}
+            {{ phone.field_investigator_phone_number }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+</tr>
+{% endif %}
+
+{% if trial.principal_investigator_email.0 %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Email</th>
+    <td class="ct-body3 tr-rowBody">
+        {% for email in  trial.principal_investigator_email %}
+            {{ email.field_email_investigator_email }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+</tr>
+{% endif %}

@@ -1,0 +1,59 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Research Ethics Committees </th>
+    {% assign_class trial.ethics_committee.0.name as ethics_committee_class %}
+    <td class="{{ ethics_committee_class }}">
+        {% if ethics_committee_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            <table class="ct-data_table tr-data_table" border="1" style="margin-bottom: 12px; width:80%;">
+                <tbody>
+                <tr style="text-align:left;">
+                    <th class="ct-header3 tr-pale_banner_color">Name of Research Ethics Committees</th>
+
+                    <th class="ct-header3 tr-pale_banner_color">Status of evaluation
+                    </th>
+                    <th class="ct-header3 tr-pale_banner_color">Approval date 
+                    </th>
+                    <th class="ct-header3 tr-pale_banner_color">Postal address 
+                    </th>
+                    <th class="ct-header3 tr-pale_banner_color">Telephone 
+                    </th>
+                    <th class="ct-header3 tr-pale_banner_color">Email 
+                    </th>
+                </tr>
+                {% for ethic_committee in trial.ethics_committee %}
+                    <tr style="text-align:left;vertical-align:top;">
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ ethic_committee.name }}</span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ ethic_committee.status }}</span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ ethic_committee.approval_date }}</span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ ethic_committee.contact_address }}</span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">
+                                {% for phone in  ethic_committee.contact_phone %}
+                                    {{ phone }}
+                                {% endfor %}
+                            </span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">
+                                {% for email in  ethic_committee.contact_email %}
+                                    {{ email }}
+                                {% endfor %}
+                            </span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </td>
+</tr>

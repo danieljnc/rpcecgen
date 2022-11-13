@@ -1,0 +1,42 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Plan de intercambio de datos</th>
+    <td class="ct-body3 tr-rowBody">
+        {% if ensayo.field_plan_int_datos_value %}
+            {{ ensayo.field_plan_int_datos_value }}
+        {% else %}
+            No
+        {% endif %}
+    </td>
+</tr>
+
+{% if ensayo.field_des_datos_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Descripción del Plan de intercambio de datos</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_des_datos_value }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if ensayo.field_informacion_compartir_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Información adicional a compartir</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_informacion_compartir_value }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if ensayo.field_url_inf_adicional_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Enlace donde encontrar la información adicional</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_url_inf_adicional_value }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if ensayo.field_escrito_por_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Escrito por</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_escrito_por_value }}
+        </td>
+    </tr>
+{% endif %}

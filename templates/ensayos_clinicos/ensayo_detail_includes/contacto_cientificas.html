@@ -1,0 +1,77 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Primer nombre</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_1er_contacto_cient_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_2do_contacto_cient_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Segundo nombre</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_2do_contacto_cient_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Apellidos</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_apell_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Especialidad</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_esp_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Lugar de trabajo</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_trab_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Dirección</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_dir_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Ciudad</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_prov_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">País</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_pais_contacto_cient_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Código postal</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_cod_contacto_cient_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_tel_contacto_cient_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Teléfono</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_tel_contacto_cient_value }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if ensayo.field_correo_contacto_cient_email.0 %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Correo electrónico</th>
+        <td class="ct-body3 tr-rowBody">
+            {% for correo in  ensayo.field_correo_contacto_cient_email %}
+                {{ correo.field_correo_contacto_cient_email }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </td>
+    </tr>
+{% endif %}
+
+
+

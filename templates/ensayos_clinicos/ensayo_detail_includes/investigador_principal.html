@@ -1,0 +1,77 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Primer nombre</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_1er_investigador_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_2do_investigador_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Segundo nombre</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_2do_investigador_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Apellidos</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_apellidos_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Especialidad médica</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_esp_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Institución</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_trab_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Dirección postal</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_dir_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Ciudad</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_prov_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">País</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_pais_investigador_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Código postal</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_cod_investigador_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_telef_investigador_number.0 %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Teléfono</th>
+    <td class="ct-body3 tr-rowBody">
+        {% for telefono in  ensayo.field_telef_investigador_number %}
+            {{ telefono.field_telef_investigador_number }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+</tr>
+{% endif %}
+
+{% if ensayo.field_correo_investigador.0 %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Correo electrónico</th>
+    <td class="ct-body3 tr-rowBody">
+        {% for correo in  ensayo.field_correo_investigador %}
+            {{ correo.field_correo_investigador_email }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </td>
+</tr>
+{% endif %}

@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}Detalle de Ensayo clínico en Inglés{% endblock %}
+
+{% block poststyles %}
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{% static 'build/clinical-trial.css' %}">
+{% endblock %}
+
+{% block page_title %}Detalle de Ensayo clínico {{ trial.field_id_number_value }}{% endblock %}
+{% block page_subtitle %}{% endblock %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ct-indent1">
+
+                    <table class="ct-data_table tr-data_table tr-tableStyle">
+                        <tbody>
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">General Information
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/general_information.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Authorization for
+                                beginning
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/authorization_beginning.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Principal investigator
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/principal_investigator.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Clinical sites to
+                                participate
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/clinical_sites.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Recruitment status
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/recruitment_status.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Health condition and
+                                Intervention
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/healt_ condition_and_intervention.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Outcomes and Timepoint
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/outcomes_and_timepoint.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Selection criterias
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/selection_criterias.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Study design
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/study_design.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Contact for public
+                                queries
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/contact_public_queries.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Contact for scientific
+                                queries
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/contact_scientific_queries.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Data Sharing
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/data_sharing.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Research Ethics
+                                Committees
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/research_ethics_committees.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">About study completion
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/about_study_completion.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <th class="ct-header2 tr-banner_color tr-sectionBanner" colspan="2">Registration and Update
+                            </th>
+                        </tr>
+                        {% include 'clinical_trial/trial_detail_tabular_view_includes/registration_update.html' %}
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

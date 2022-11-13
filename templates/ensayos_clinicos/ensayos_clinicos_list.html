@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}Listado de Ensayos Clínicos en Español{% endblock %}
+
+{% block poststyles %}
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{% static 'bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block page_title %}Ensayos clínicos en español{% endblock %}{% block page_subtitle %}{% endblock %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <br>
+            <div class="box-header">
+                <form method = "GET">
+                    <div class="col-md-3">
+                      <label for="">{{ form.estado_reclutamiento_field.label }}</label>
+                      {{ form.estado_reclutamiento_field }}
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">{{ form.tipo_intervencion_field.label }}</label>
+                        {{ form.tipo_intervencion_field }}
+                      </div>
+                    <div class="col-md-3">
+                      <label for="">{{ form.fase_field.label }}</label>
+                      {{ form.fase_field }}
+                    </div>
+                    <div class="col-md-2">
+                      <label for="">{{ form.ensayos_covid_field.label }}</label>
+                      {{ form.ensayos_covid_field }}
+                    </div>
+                    <div class="col-md-1">
+                      <br>                  
+                      <input style="margin-top: 5px;" class="btn btn-primary" type="submit" value="Filtrar">
+                    </div>                
+                </form>             
+            </div>
+            <br>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Código de registro</th>
+                  <th>Título del estudio</th>
+                  <th>Promotor</th>
+                  <th>Fecha de registro</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ensayo_clinico in EnsayosClinicos %}
+                <tr>
+                  <td><a href="{% url 'ensayo_clinico_detail' pk=ensayo_clinico.vid %}">{{ ensayo_clinico.field_cod_reg_pub_value }}</a></td>
+                  <td>{{ ensayo_clinico.field_titulo_completo_value  }}</td>
+                  <td>{{ ensayo_clinico.field_promotor_value }}</td>
+                  <td>{{ ensayo_clinico.field_fecha_reg_ens_value }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Código de registro</th>
+                  <th>Título del estudio</th>
+                  <th>Promotor</th>
+                  <th>Fecha de registro</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+{% block postscript %}
+    <!-- DataTables -->
+    <script src="{% static 'bower_components/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+
+    <!-- page script -->
+<script>
+  $(function () {
+    $('#example2').DataTable()
+  })
+</script>
+{% endblock%}

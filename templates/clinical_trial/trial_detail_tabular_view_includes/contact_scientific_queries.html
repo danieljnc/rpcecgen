@@ -1,0 +1,80 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">First name</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_firstname_scientific_value }}
+    </td>
+</tr>
+
+{% if trial.field_midlename_scientfic_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Middle name</th>
+        <td class="ct-body3 tr-rowBody">{{ trial.field_midlename_scientfic_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Last name</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_lastname_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Specialty</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_specialty_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Affiliation</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_affiliation_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Postal address</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_address_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">City</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_city_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Country</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_country_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Zip Code</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_zipcode_scientific_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Telephone</th>
+    {% assign_class trial.field_tel_contact_cient_value as phone_scientific_class %}
+    <td class="{{ phone_scientific_class }}">
+        {% if phone_scientific_class == 'tr-missing_color' %}
+            Not provided
+        {% else %}
+            {{ trial.field_tel_contact_cient_value }}
+        {% endif %}
+    </td>
+</tr>
+
+{% if trial.field_phone_scientific_value.0 %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Email</th>
+        <td class="ct-body3 tr-rowBody">
+            {% for email in  trial.field_phone_scientific_value %}
+                {{ email }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </td>
+    </tr>
+{% endif %}
+

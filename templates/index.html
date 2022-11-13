@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-stethoscope"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Ensayos registrados</span>
+                    <span class="info-box-number">{{ trial_registrered }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-stethoscope"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Ensayos retrospectivos</span>
+                    <span class="info-box-number">{{ trial_actual }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-stethoscope"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Ensayos prospectivos</span>
+                    <span class="info-box-number">{{ trial_anticipated }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Ensayos registrados mensualmente</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-center">                               
+                                <strong>1 de Enero, <script>document.write(new Date().getFullYear());</script> - 31 Diciembre, <script>document.write(new Date().getFullYear());</script></strong>
+                            </p>
+
+                            <div class="chart">
+                                <!-- Sales Chart Canvas -->
+                                <canvas id="barChart" style="height: 180px;"></canvas>
+                            </div>
+                            <!-- /.chart-responsive -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- ./box-body -->                
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->    
+</section>
+{% endblock %}
+
+{% block postscript %}
+<script>    
+    var salesChartData = {
+    labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    datasets: [      
+      {
+        label               : 'Ensayos clínicos',
+        fillColor           : 'rgba(60,141,188,0.9)',
+        strokeColor         : 'rgba(60,141,188,0.8)',
+        pointColor          : '#3b8bba',
+        pointStrokeColor    : 'rgba(60,141,188,1)',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgba(60,141,188,1)',
+        data                : {{ trial_year }}
+      }
+    ]
+  }  
+
+  var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
+  var barChart                         = new Chart(barChartCanvas)
+  var barChartData                     = salesChartData
+  barChartData.datasets[0].fillColor   = '#00a65a'
+  barChartData.datasets[0].strokeColor = '#00a65a'
+  barChartData.datasets[0].pointColor  = '#00a65a'
+  var barChartOptions                  = {
+    //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+    scaleBeginAtZero        : true,
+    //Boolean - Whether grid lines are shown across the chart
+    scaleShowGridLines      : true,
+    //String - Colour of the grid lines
+    scaleGridLineColor      : 'rgba(0,0,0,.05)',
+    //Number - Width of the grid lines
+    scaleGridLineWidth      : 1,
+    //Boolean - Whether to show horizontal lines (except X axis)
+    scaleShowHorizontalLines: true,
+    //Boolean - Whether to show vertical lines (except Y axis)
+    scaleShowVerticalLines  : true,
+    //Boolean - If there is a stroke on each bar
+    barShowStroke           : true,
+    //Number - Pixel width of the bar stroke
+    barStrokeWidth          : 2,
+    //Number - Spacing between each of the X value sets
+    barValueSpacing         : 5,
+    //Number - Spacing between data sets within X values
+    barDatasetSpacing       : 1,   
+    //Boolean - whether to make the chart responsive
+    responsive              : true,
+    maintainAspectRatio     : true
+  }
+
+  barChartOptions.datasetFill = false
+  barChart.Bar(salesChartData, barChartOptions)
+</script>
+{% endblock %}
+
+

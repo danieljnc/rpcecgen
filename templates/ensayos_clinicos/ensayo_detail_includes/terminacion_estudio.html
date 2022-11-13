@@ -1,0 +1,18 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Total de incluidos</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_total_paciente_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha de terminación del estudio</th>
+    {% assign_class ensayo.field_term_estudio_value as term_estudio_class %}
+    <td class="ct-body3 tr-rowBody {{ term_estudio_class }}">
+        {% if term_estudio_class == 'tr-missing_color' %}
+            No proveido
+        {% else %}
+            {{ ensayo.field_term_estudio_value }}
+        {% endif %}
+    </td>
+</tr>

@@ -1,0 +1,54 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Condición médica que se estudia</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_cond_medica_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Breve descripción de la(s) intervención(es)</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_breve_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Código de la condición médica</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_codigo_cm_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Tipo de la intervención</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_tipo_intervencion_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Código de la intervención</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_codigo_intervencion_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Palabras claves de la intervención</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_palabras_intervencion_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Palabras claves de la condición médica</th>
+    {% assign_class ensayo.field_palabras_cm_value as palabras_cm_class %}
+    <td class="ct-body3 tr-rowBody {{ palabras_cm_class }}">
+        {% if palabras_cm_class == 'tr-missing_color' %}
+            No proveido
+        {% else %}
+            {{ ensayo.field_palabras_cm_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Total de grupos</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_totalg_value }}
+    </td>
+</tr>

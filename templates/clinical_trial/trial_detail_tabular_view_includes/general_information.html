@@ -1,0 +1,91 @@
+{% load clinical_trial_extras %}
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Acronym of Public Title</th>
+    {% assign_class trial.field_public_acronym_value as public_acronym_class %}
+    <td class="{{ public_acronym_class }}">
+        {% if public_acronym_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            {{ trial.field_public_acronym_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Scientific title</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_scientific_title_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Acronym of Scientific Title</th>
+    {% assign_class trial.field_scientific_acronym_value as scientific_acronym_class %}
+    <td class="{{ scientific_acronym_class }}">
+        {% if scientific_acronym_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            {{ trial.field_scientific_acronym_value }}
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Secondary indentifying numbers</th>
+    {% assign_class trial.secondary_ids.0.sec_id as sec_id_class %}
+    <td class="{{ sec_id_class }}">
+        {% if sec_id_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <table class="ct-data_table tr-data_table" border="1" style="margin-bottom: 12px; width:80%;">
+                <tbody>
+                <tr style="text-align:left;">
+                    <th class="ct-header3 tr-pale_banner_color">Secondary indentifying numbers</th>
+
+                    <th class="ct-header3 tr-pale_banner_color">Issuing authority of the secondary identifying numbers
+                    </th>
+                </tr>
+                {% for sec_id in trial.secondary_ids %}
+                    <tr style="text-align:left;vertical-align:top;">
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ sec_id.sec_id }}</span>
+                        </td>
+                        <td class="ct-body3">
+                            <span style="display:block;margin-bottom:1ex;">{{ sec_id.issuing_authorities }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Primary sponsor</th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_sponsor_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Secondary sponsor</th>
+    {% assign_class trial.secondary_sponsors.0.field_sec_sponsor_value as secondary_sponsor_class %}
+    <td class="{{ secondary_sponsor_class }}">
+        {% if secondary_sponsor_class == 'tr-missing_color' %}
+            Not applicable
+        {% else %}
+            <ul>
+                {% for secondary_sponsor in trial.secondary_sponsors %}
+                    <li>{{ secondary_sponsor.field_sec_sponsor_value }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Source(s) of monetary or material
+        support
+    </th>
+    <td class="ct-body3 tr-rowBody">{{ trial.field_source_monetary_value }}
+    </td>
+</tr>

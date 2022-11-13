@@ -1,0 +1,34 @@
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Estado del ensayo</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_est_ensayo_value }}
+    </td>
+</tr>
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Estado de reclutamiento</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_est_reclutamiento_value }}
+    </td>
+</tr>
+
+{% if ensayo.field_causa_ter_value %}
+    <tr>
+        <th class="ct-header3 tr-banner_color tr-rowHeader">Causa de terminación temprana</th>
+        <td class="ct-body3 tr-rowBody">{{ ensayo.field_causa_ter_value }}
+        </td>
+    </tr>
+{% endif %}
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha del primer incluido</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_fecha_1er_incluido_value|date:"d/m/Y" }}
+    </td>
+</tr>
+
+
+<tr>
+    <th class="ct-header3 tr-banner_color tr-rowHeader">Fecha del último incluido</th>
+    <td class="ct-body3 tr-rowBody">{{ ensayo.field_fecha_ult_incluido_value|date:"d/m/Y" }}
+    </td>
+</tr>
+
+
